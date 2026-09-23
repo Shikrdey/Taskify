@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} confirmation page {% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="shadow-lg p-4 mt-5 bg-light bg-body rounded-3" style="width: 40%;">
+        <h5 class="text-center mb-2">Are you sure want to delete {{object}}?</h5>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <form method="post">
+                <div class="text-start">
+                    <button type="submit" class="btn btn-danger"
+                        style="margin-right: 10px; border-radius: 15px;">Confirm</button>
+                </div>
+            </form>
+            <div class="text-end">
+                <a href="{{link}}" class="btn btn-success" style="margin-right: 15px; border-radius: 15px;">No</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

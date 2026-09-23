@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<h3 class="text-center mb-3 mt-3">Your Tasks</h3>
+<table class="table">
+    <tr class="table-warning">
+        <th scope="col"><b>Tasks</b></th>
+        <th scope="col" style="width: 80px; text-align: center;"><b>Status</b></th>
+        <th scope="col" style="width: 180px; text-align: center;"><b>Date Added</b></th>
+        <th style="width: 110px; text-align: center;"><b>Action</b></th>
+    </tr>
+
+    {% for t in tasks %}
+    <tr>
+        <td>{{t.task}}</td>
+        {% if t.status=="Pending" %}
+        <td class="text-center"><span class="badge text-bg-danger p-1">{{t.status}}</span></td>
+        {% elif t.status=="In-progress" %}
+        <td class="text-center"><span class="badge text-bg-warning p-1">{{t.status}}</span></td>
+        {% else %}
+        <td class="text-center"><span class="badge text-bg-success p-1">{{t.status}}</span></td>
+        {% endif %}
+
+        <td class="text-center">{{t.date_added}}</td>
+        <td><a href="/edit/{{t.id}}" class="btn btn-success btn-sm"
+                style="width:40px; margin-right: 5px;"><i class="bi bi-pencil-square"></i></a>
+            <a href="/delete/{{t.id}}" class="btn btn-danger btn-sm"
+                style="width:40px;"><i class="bi bi-trash3-fill"></i></a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}

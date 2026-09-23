@@ -1,0 +1,19 @@
+{% extends "base1.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded-3" style="width: 30%;">
+    <h3 class="text-center mb-2">Welcome</h3>
+    <div class="d-flex justify-content-center align-items-center mt-3">
+    <div class="text-start">
+    <a href="/login" class="btn btn-primary" style="margin-right: 20px;">Login</a>
+            </div>
+    <div class="text-end">
+    <!-- <a href="/login" class="btn btn-outline-primary">Login</a> -->
+     <a href="/signup" class="btn btn-primary" >Sign up</a>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} task {% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="shadow-lg p-4 mt-5 bg-light bg-body rounded-3" style="width: 40%;">
+        <h3 class="text-center mb-2">Create Task</h3>
+        <form method="post">
+            <div class="mb-3">
+                <label for="task" class="form-label">Task</label>
+                <textarea name="task" class="form-control" rows="3" placeholder="Enter your task here" required ></textarea>
+                </div>
+                <div class="mb-3">
+                <label for="cat" class="form-label">Category</label>
+                <input name="cat" type="text" class="form-control" required />
+
+            </div>
+            <div class="text-end">
+                <button type="add" class="btn btn-primary">Add Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

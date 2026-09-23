@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %} task {% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="shadow-lg p-4 mt-5 bg-light bg-body rounded-3" style="width: 40%;">
+        <h3 class="text-center mb-2">Edit Task</h3>
+        <form method="post">
+            <div class="mb-3">
+                <label for="task" class="form-label">Task</label>
+                <textarea name="task" class="form-control" rows="3"  required >{{task.task}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Choose your task status</label>
+                <select name="status" id="status" class="form-control">
+                    {% if task.status=="Pending" %}
+                    <option value="Pending" selected>Pending</option>
+                    {% else %}
+                    <option value="Pending">Pending</option>
+                    {% endif %}
+                    {% if task.status=="In-progress" %}
+                    <option value="In-progress" selected>In-progress</option>
+                    {% else %}
+                    <option value="In-progress">In-progress</option>
+                    {% endif %}
+                    {% if task.status=="Completed" %}
+                    <option value="Completed" selected>Completed</option>
+                    {% else %}
+                    <option value="Completed">Completed</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Choose your task Category</label>
+                <select name="category" id="category" class="form-control">
+                    {% for c in category %}
+                    {% if task.category_id == c.id %}
+                        <option value="{{c.id}}" selected>{{c.name}}</option>
+                    {% else %}
+                        <option value="{{c.id}}">{{c.name}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-success">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

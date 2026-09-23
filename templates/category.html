@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Category {% endblock %}
+{% block content %}
+<h3 class="text-center mb-3 mt-3">Category</h3>
+{% for c in category %}
+<div class="card" style="width: 70%; margin-left:15%; margin-right: 15%; margin-bottom: 50px;">
+  <div class="card-header">
+ <a href="/deletecategory/{{c.id}}" class="btn btn-danger btn-sm" style="width:40px; margin-right: 15px;"><i class="bi bi-trash3-fill"></i></a><strong>{{c.name|upper}}</strong>
+  </div>
+  <ul class="list-group list-group-flush">
+    {% for t in tasks %}
+        {% if t.category_id==c.id %}
+    <li class="list-group-item">{{t.task}}</li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+{% endblock %}
